@@ -14,7 +14,17 @@ export class GifServiceService {
   }
 
   buscarGifs( termino: string){
-    this._historial.unshift(termino);
+
+    // Trabajamos con minúsculas pero en el HTML tenemos un pipe con titlecase que deja el texto capitalizado
+    termino = termino.trim().toLocaleLowerCase();
+
+    // Si ya existe la entrada en el historial, no se inserta
+    if (!this._historial.includes(termino)){
+      this._historial.unshift(termino);
+      this._historial = this._historial.splice(0,10);
+      return;
+    }
+
     console.log(this._historial);
   }
 }

@@ -19,6 +19,11 @@ export class BusquedaComponent implements OnInit {
 
   buscar(){
     const valor = this.txtBuscar.nativeElement.value;
+    if (valor.trim().length === 0 ){
+      this.txtBuscar.nativeElement.value = '';
+      return;
+    }
+
     this.gifService.buscarGifs(valor);
 
     this.txtBuscar.nativeElement.value = '';

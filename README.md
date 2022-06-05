@@ -54,3 +54,20 @@ export class SidebarComponent {
   }
 ```
 
+## Pipes
+
+En HTML con Angular, puedes hacer pipes para manipular lo que se muestra en el template (HTML)
+
+### titlecase
+
+Para capitalizar palabras.
+Empleado en:
+
+```html:
+<a class="list-group-item list-group-item-action"
+*ngFor="let item of historial">
+  {{item | titlecase}}
+</a>
+```
+
+Sirve para que aunque almacenemos los datos en minúsculas, se muestre el dato capitalizado
